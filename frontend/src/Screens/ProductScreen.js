@@ -1,11 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import data from "../data";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import data from '../data';
 
 // Ask about product page , css thats not showing so far , how to show three products in a row instead of 4 ,image in logo and why some images work and some dont show
 function ProductScreen(props) {
   console.log(props.match.params.id);
-  const product = data.products.find((x) => x.id === props.match.params.id);
+  const product = data.products.find((x) => x._id == props.match.params.id);
+  console.log(data.products);
   return (
     <div>
       <div>
@@ -13,7 +14,7 @@ function ProductScreen(props) {
       </div>
       <div className="details"></div>
       <div className="details-image">
-        <img src="{product.image}" alt="product"></img>
+        <img src={product.image} alt="product"></img>
       </div>
       <div className="details-info">
         <ul>
@@ -43,7 +44,7 @@ function ProductScreen(props) {
               <option>2</option>
               <option>3</option>
               <option>4</option>
-            </select>{" "}
+            </select>{' '}
           </li>
           <li>
             <button> Add to Cart</button>
