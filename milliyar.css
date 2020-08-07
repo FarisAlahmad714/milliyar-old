@@ -1,0 +1,62 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    header {
+        background-color: black;
+        text-shadow: black;
+    }
+
+    ` {
+        display: inline-block;
+    }
+
+    h1 {
+        font-size: 40px;
+        color: whitesmoke;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 300;
+        font-family: "Roboto Slab", serif;
+        display: inline-block;
+        padding-left: 10%;
+    }
+
+    h2 {
+        font-size: 30px;
+        color: #navy;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        font-family: "Roboto Slab", serif;
+    }
+
+    body {
+        background-size: cover;
+    }
+
+    .nav-item {
+        color: #88001B;
+        display: inline-block;
+        font-size: 20px;
+        padding: 20px;
+        margin: 20px;
+        letter-spacing: 0.1em;
+        font-weight: 300;
+        font-family: "Roboto Slab", serif;
+    }
+
+    h3 {
+        text-align: left;
+    }
+
+    p {
+        text-align: left;
+    }
+
+    .carousel-indicators {
+        padding-left: ;
+        background-color: darkred;
+    }
