@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import data from '../data';
+import React from "react";
+import { Link } from "react-router-dom";
+import data from "../data";
 
-// Ask about product page , css thats not showing so far , how to show three products in a row instead of 4 ,image in logo and why some images work and some dont show
+// Ask about product page css  jquery photos in homepage , babel transpile
 function ProductScreen(props) {
   console.log(props.match.params.id);
   const product = data.products.find((x) => x._id == props.match.params.id);
@@ -10,6 +10,7 @@ function ProductScreen(props) {
   return (
     <div>
       <div>
+        <div className="back-to-result"></div>
         <Link to="/">Back to result</Link>
       </div>
       <div className="details"></div>
@@ -25,17 +26,15 @@ function ProductScreen(props) {
             <h5>{product.category}</h5>
           </li>
           <li>
-            <b>{product.price}</b>
-          </li>
-          <li>
             Description:
             <div>{product.description}</div>
+            {/* add description in data if needed */}
           </li>
         </ul>
       </div>
       <div className="details-action">
         <ul>
-          <li>Price: {product.price}</li>
+          <li>Price: {product.price}$</li>
           <li>Status:{product.status} </li>
           <li>
             Qty:
@@ -44,10 +43,10 @@ function ProductScreen(props) {
               <option>2</option>
               <option>3</option>
               <option>4</option>
-            </select>{' '}
+            </select>{" "}
           </li>
           <li>
-            <button> Add to Cart</button>
+            <button className="button"> Add to Cart</button>
           </li>
         </ul>
       </div>

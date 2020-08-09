@@ -1,17 +1,17 @@
-import React from 'react';
-import data from './data';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import './App.css';
-import HomeScreen from './Screens/HomeScreen';
-import ProductScreen from './Screens/ProductScreen';
-import logo from './../src/logo.jpg';
+import React from "react";
+import data from "./data";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import "./App.css";
+import HomeScreen from "./Screens/HomeScreen";
+import ProductScreen from "./Screens/ProductScreen";
+import logo from "./../src/logo.jpg";
 
 function App() {
   const openMenu = () => {
-    document.querySelector('.sidebar').classList.add('open');
+    document.querySelector(".sidebar").classList.add("open");
   };
   const closeMenu = () => {
-    document.querySelector('.sidebar').classList.remove('open');
+    document.querySelector(".sidebar").classList.remove("open");
   };
   return (
     <BrowserRouter>
@@ -21,7 +21,7 @@ function App() {
             <button onClick={openMenu}>&#9776;</button>
             <Link to="/">
               Milliy
-              {/* <img src={logo} alt="sl" /> */}r
+              <img src={logo} alt="sl" width="30px" height="40px" />r
             </Link>
           </div>
           <div className="header-links">
@@ -56,7 +56,7 @@ function App() {
           </div>
         </main>
         <footer className="footer">
-          {' '}
+          {" "}
           &copy;2020 All rights reserved to MilliyarLtd.
         </footer>
       </div>
