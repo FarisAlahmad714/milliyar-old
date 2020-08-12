@@ -1,3 +1,4 @@
+// Product specifications can be made here
 export default {
   products: [
     {
@@ -6,6 +7,7 @@ export default {
       image: "/images/Pal2.png",
       category: "Benjamins Collection",
       price: "50",
+      countInStock: 0,
     },
     {
       _id: "2",
@@ -13,6 +15,7 @@ export default {
       image: "/images/Pal3.png",
       category: "Benjamins Collection",
       price: "50",
+      countInStock: 10,
     },
     {
       _id: "3",
@@ -20,6 +23,7 @@ export default {
       image: "/images/Pal4.png",
       category: "Benjamins Collection",
       price: "50",
+      countInStock: 10,
     },
     {
       _id: "4",
@@ -27,6 +31,7 @@ export default {
       image: "/images/Jor2.jpg",
       category: "Benjamins Collection",
       price: "50",
+      countInStock: 10,
     },
     {
       _id: "5",
@@ -34,6 +39,7 @@ export default {
       image: "/images/Jor3.jpg",
       category: "Benjamins Collection",
       price: "50",
+      countInStock: 10,
     },
     {
       _id: "6",
@@ -41,6 +47,7 @@ export default {
       image: "/images/Jor4.jpg",
       category: "Benjamins Collection",
       price: "50",
+      countInStock: 10,
     },
   ],
 };
