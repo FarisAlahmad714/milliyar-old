@@ -1,12 +1,16 @@
 import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
+import SignInScreen from "./screens/SignInScreen";
 import logo from "./../src/logo.jpg";
 
 function App() {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
   const openMenu = () => {
     document.querySelector(".sidebar").classList.add("open");
   };
@@ -25,7 +29,12 @@ function App() {
             </Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">Cart </a>
+            {userInfo ? (
+              <Link to="/profile"> {userInfo.name} </Link>
+            ) : (
+              <Link to="/signin"> Log In </Link>
+            )}
             <a href="login.html">Login</a>
           </div>
         </header>
@@ -51,10 +60,12 @@ function App() {
         </aside>
         <main className="main">
           <div className="content">
+            <Route path="/signin" component={SignInScreen} />
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
-          </div>
+          </div>{" "}
+          ``
         </main>
         <footer className="footer">
           {" "}
