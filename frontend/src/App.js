@@ -6,6 +6,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
 import SignInScreen from "./screens/SignInScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 import logo from "./../src/logo.jpg";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
         <main className="main">
           <div className="content">
             <Route path="/signin" component={SignInScreen} />
+            <Route path="/register" component={RegisterScreen} />
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
