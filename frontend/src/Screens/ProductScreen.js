@@ -45,8 +45,10 @@ function ProductScreen(props) {
                 <h5>{product.category}</h5>
               </li>
               <li>
-                Description:
-                <div>{product.description}</div>
+                Collection:
+                <div className="product-collectionName">
+                  {product.collectionName}
+                </div>
                 {/* add description in data if needed */}
               </li>
             </ul>
@@ -75,7 +77,7 @@ function ProductScreen(props) {
               </li>
               <li>
                 {product.countInStock > 0 && (
-                  <button onClick={handleAddtoCart} className="button">
+                  <button onClick={handleAddtoCart} className="button primary">
                     {" "}
                     Add to Cart
                   </button>

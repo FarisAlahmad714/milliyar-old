@@ -37,7 +37,9 @@ function HomeScreen(props) {
                 <h2>{product.name}</h2>
               </Link>
             </div>
-            <div className="product-category">{product.category}</div>
+            <div className="product-collectionName">
+              {product.collectionName}'s Collection
+            </div>
             <div className="product-price">{product.price}$</div>
           </div>
         </li>

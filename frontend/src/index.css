@@ -9,10 +9,7 @@ body {
   margin: 0;
 }
 
-input,
-select,
-textarea,
-button {
+input, select, textarea, button {
   padding: 0.5rem;
   border: 0.1rem solid #c0c0c0;
   border-radius: 0.5rem;
@@ -121,6 +118,11 @@ a:hover {
   color: #808080;
 }
 
+.product-collectionName {
+  font-size: 1.2rem;
+  color: #808080;
+}
+
 .product-price {
   font-size: 2rem;
   font-weight: bold;
@@ -196,14 +198,12 @@ a:hover {
   padding: 1rem;
 }
 
-.details-info ul,
-.details-action ul {
+.details-info ul, .details-action ul {
   list-style: none;
   padding: 0;
 }
 
-.details-info li,
-.details-action li {
+.details-info li, .details-action li {
   margin-bottom: 1rem;
   padding: 0;
 }
@@ -347,8 +347,35 @@ a:hover {
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
-input {
+
+/* /check here */
+
+.input {
   padding: 1rem;
   border: 0.1rem #c0c0c0 solid;
   border-radius: 0.5rem;
+}
+
+/* Products screen */
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.content-margined {
+  margin: 1rem;
+}
+
+.table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+tbody>tr:nth-child(odd) {
+  background-color: #f0f0f0;
 }
