@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { signin } from "../actions/userActions";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { signin } from '../actions/userActions';
 
 function SigninScreen(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const userSignin = useSelector((state) => state.userSignin);
   const { loading, userInfo, error } = userSignin;
   const dispatch = useDispatch();
   const redirect = props.location.search
-    ? props.location.search.split("=")[1]
-    : "/";
+    ? props.location.search.split('=')[1]
+    : '/';
 
   // check on redirect parameter
   useEffect(() => {
@@ -65,7 +65,7 @@ function SigninScreen(props) {
           <li>
             <Link
               to={
-                redirect === "/" ? "register" : "register?redirect=" + redirect
+                redirect === '/' ? 'register' : 'register?redirect=' + redirect
               }
               className="button secondary text-center"
             >
