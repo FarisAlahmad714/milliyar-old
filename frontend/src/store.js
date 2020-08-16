@@ -10,11 +10,19 @@ import Cookie from "js-cookie";
 import { cartReducer } from "./reducers/cartReducer";
 import { userSigninReducer } from "./reducers/userReducers";
 import { userRegisterReducer } from "./reducers/userReducers";
+import {
+  orderCreateReducer,
+  orderDetailsReducer,
+  orderPayReducer,
+} from "./reducers/orderReducer";
 
 const cartItems = Cookie.getJSON("cartItems") || [];
 const userInfo = Cookie.getJSON("userInfo") || null;
 
-const initialState = { cart: { cartItems }, userSignin: { userInfo } };
+const initialState = {
+  cart: { cartItems, shipping: {}, payment: {} },
+  userSignin: { userInfo },
+};
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
@@ -23,6 +31,9 @@ const reducer = combineReducers({
   userRegister: userRegisterReducer,
   productSave: productSaveReducer,
   productDelete: productDeleteReducer,
+  orderCreate: orderCreateReducer,
+  orderDetails: orderDetailsReducer,
+  orderPay: orderPayReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
