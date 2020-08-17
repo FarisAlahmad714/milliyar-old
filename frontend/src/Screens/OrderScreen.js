@@ -65,6 +65,7 @@ function OrderScreen(props) {
     <div>{error}</div>
   ) : (
     <div>
+      <h1>Order {order._id}</h1>
       <div className="placeorder">
         <div className="placeorder-info">
           <div>

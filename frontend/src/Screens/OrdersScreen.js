@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { signin } from "../actions/userActions";
-import { saveOrder, listOrders, deleteOrder } from "../actions/orderActions";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { signin } from '../actions/userActions';
+import { saveOrder, listOrders, deleteOrder } from '../actions/orderActions';
 
 function OrdersScreen(props) {
-  console.log("dd");
+  console.log('dd');
   const orderList = useSelector((state) => state.orderList);
   const { loading, orders, error } = orderList;
 
@@ -33,7 +33,7 @@ function OrdersScreen(props) {
   ) : (
     <div className="content content-margined">
       <div className="order-header">
-        <h3>Orders</h3>
+        <h1>Orders</h1>
       </div>
       <div className="order-list">
         <table className="table">
@@ -62,9 +62,9 @@ function OrdersScreen(props) {
                 <td>{order.isDelivered.toString()}</td>
                 <td>{order.deliveredAt}</td>
                 <td>
-                  <Link to={"/order/" + order._id} className="button secondary">
+                  <Link to={'/order/' + order._id} className="button secondary">
                     Details
-                  </Link>{" "}
+                  </Link>{' '}
                   <button
                     type="button"
                     onClick={() => deleteHandler(order)}
