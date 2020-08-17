@@ -12,6 +12,9 @@ import ShippingScreen from "./screens/ShippingScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
+import OrdersScreen from "./screens/OrdersScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import AboutScreen from "./screens/AboutScreen";
 import logo from "./../src/logo.jpg";
 
 function App() {
@@ -35,13 +38,23 @@ function App() {
             </Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart </a>
+            <Link to="/cart">Cart</Link>
             {userInfo ? (
               <Link to="/profile"> {userInfo.name} </Link>
             ) : (
               <Link to="/signin"> Log In </Link>
             )}
-            <a href="login.html">Login</a>
+            {userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <a href="#">Admin</a>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/orders">All Orders</Link>
+                    <Link to="/products">Manage Products</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </header>
         <aside className="sidebar">
@@ -49,23 +62,26 @@ function App() {
           <button className="sidebar-close-button" onClick={closeMenu}>
             x
           </button>
-          <ul>
+          <ul className="menubar">
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="index.html">About</a>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <a href="index.html">Monthly Drops</a>
+              <Link to="/monthly">Monthly Drops</Link>
             </li>
             <li>
-              <a href="index.html">Categories</a>
+              <Link to="/categories">Categories</Link>
             </li>
           </ul>
         </aside>
         <main className="main">
           <div className="content">
+            <Route path="/about" component={AboutScreen} />
+            <Route path="/orders" component={OrderScreen} />
+            <Route path="/profile" component={ProfileScreen} />
             <Route path="/order/:id" component={OrderScreen} />
             <Route path="/products" component={ProductsScreen} />
             <Route path="/shipping" component={ShippingScreen} />
@@ -77,7 +93,6 @@ function App() {
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
           </div>{" "}
-          ``
         </main>
         <footer className="footer">
           {" "}

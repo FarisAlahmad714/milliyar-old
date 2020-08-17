@@ -7,6 +7,7 @@ import {
   listProducts,
   deleteProduct,
 } from "../actions/productActions";
+import axios from "axios";
 
 function ProductsScreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -17,6 +18,7 @@ function ProductsScreen(props) {
   const [category, setCategory] = useState("");
   const [collectionName, setCollection] = useState("");
   const [countInStock, setCountInStock] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   const productList = useSelector((state) => state.productList);
   const { loading, products, error } = productList;
@@ -74,6 +76,27 @@ function ProductsScreen(props) {
   const deleteHandler = (product) => {
     dispatch(deleteProduct(product._id));
   };
+
+  const uploadFileHandler = (e) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append("image", file);
+    setUploading(true);
+    axios
+      .post("/api/uploads", bodyFormData, {
+        headers: {
+          "Content-Type": "multipar/form-data",
+        },
+      })
+      .then((response) => {
+        setImage(response.data);
+        setUploading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setUploading(false);
+      });
+  };
   return (
     <div className="content content-margined">
       <div className="product-header">
@@ -123,6 +146,8 @@ function ProductsScreen(props) {
                   id="image"
                   onChange={(e) => setImage(e.target.value)}
                 ></input>
+                <input type="file" onChange={uploadFileHandler}></input>
+                {uploading && <div>Uploading..</div>}
               </li>
               <li>
                 <label htmlFor="category">Category</label>
