@@ -15,10 +15,7 @@ h1 {
   margin: 0;
 }
 
-input,
-select,
-textarea,
-button {
+input, select, textarea, button {
   padding: 0.5rem;
   border: 0.1rem solid #c0c0c0;
   border-radius: 0.5rem;
@@ -215,14 +212,12 @@ a:hover {
   padding: 1rem;
 }
 
-.details-info ul,
-.details-action ul {
+.details-info ul, .details-action ul {
   list-style: none;
   padding: 0;
 }
 
-.details-info li,
-.details-action li {
+.details-info li, .details-action li {
   margin-bottom: 1rem;
   padding: 0;
 }
@@ -349,11 +344,12 @@ a:hover {
   height: 18px;
   margin-left: -16px;
   margin-top: -10px;
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
   font-weight: bold;
-  line-height: 19px;
+  line-height: 20px;
 }
+
 /* LoginForm */
 
 .form {
@@ -408,7 +404,7 @@ th {
   text-align: left;
 }
 
-tbody > tr:nth-child(odd) {
+tbody>tr:nth-child(odd) {
   background-color: #f0f0f0;
 }
 
@@ -421,14 +417,14 @@ tbody > tr:nth-child(odd) {
   margin: 1rem auto;
 }
 
-.checkout-steps > div {
+.checkout-steps>div {
   border-top: 0.3rem #c0c0c0 solid;
   color: #c0c0c0;
   flex: 1 1;
   padding-top: 1rem;
 }
 
-.checkout-steps > div.active {
+.checkout-steps>div.active {
   border-top: 0.3rem #f08000 solid;
   color: #f08000;
 }
@@ -454,7 +450,7 @@ tbody > tr:nth-child(odd) {
   padding: 1rem;
 }
 
-.placeorder-info > div {
+.placeorder-info>div {
   border: 0.1rem #c0c0c0 solid;
   border-radius: 0.5rem;
   background-color: #fcfcfc;
@@ -462,28 +458,28 @@ tbody > tr:nth-child(odd) {
   margin: 1rem;
 }
 
-.placeorder-info > div:first-child {
+.placeorder-info>div:first-child {
   margin-top: 0;
 }
 
-.placeorder-action > ul {
+.placeorder-action>ul {
   padding: 0;
   list-style-type: none;
 }
 
-.placeorder-action > ul > li {
+.placeorder-action>ul>li {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
 
-.placeorder-action > ul > li:last-child {
+.placeorder-action>ul>li:last-child {
   font-size: 2rem;
   font-weight: bold;
   color: #c04000;
 }
 
-.placeorder-actions-payment > div {
+.placeorder-actions-payment>div {
   width: 100%;
 }
 
