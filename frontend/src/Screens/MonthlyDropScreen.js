@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { listProducts } from "../actions/productActions";
 
-function HomeScreen(props) {
+function MonthlyDropScreen(props) {
   const [collection, setCollection] = useState("");
   const [category, setCategory] = useState("");
   // const category = props.match.params.id ? props.match.params.id : '';
@@ -11,16 +11,16 @@ function HomeScreen(props) {
   const { products, loading, error } = productList;
   const dispatch = useDispatch();
 
-  const collectionChangeHandler = (e) => {
-    const newCollection = e.target.value;
-    setCollection(newCollection);
-    dispatch(listProducts({ collection: newCollection, category }));
-  };
-  const categoryChangeHandler = (e) => {
-    const newCategory = e.target.value;
-    setCategory(newCategory);
-    dispatch(listProducts({ category: newCategory, category, collection }));
-  };
+  //   const collectionChangeHandler = (e) => {
+  //     const newCollection = e.target.value;
+  //     setCollection(newCollection);
+  //     dispatch(listProducts({ collection: newCollection, category }));
+  //   };
+  //   const categoryChangeHandler = (e) => {
+  //     const newCategory = e.target.value;
+  //     setCategory(newCategory);
+  //     dispatch(listProducts({ category: newCategory, category, collection }));
+  //   };
   useEffect(() => {
     dispatch(listProducts({ category }));
 
@@ -37,30 +37,10 @@ function HomeScreen(props) {
       <div>{error}</div>
     ) : (
       <div>
-        <div className="home-filter">
-          <form>
-            Collections{" "}
-            <select
-              name="collection"
-              value={collection}
-              onChange={collectionChangeHandler}
-            >
-              <option value="">All</option>
-              <option value="Collection 1">Royal Jordanian</option>
-              <option value="Collection 2">Haj Benjamin </option>
-            </select>{" "}
-            Category{" "}
-            <select
-              name="category"
-              value={category}
-              onChange={categoryChangeHandler}
-            >
-              <option value="">All</option>
-              <option value="Category 1">Hoodies</option>
-              <option value="Category 2">Hats</option>
-            </select>
-          </form>
-        </div>
+        <h1 className="monthly-drop">
+          On the 25th of every month , we drop a new collection of limited
+          edition products{" "}
+        </h1>
         <ul className="products">
           {products.map((product) => (
             <li key={product.id}>
@@ -90,4 +70,4 @@ function HomeScreen(props) {
   );
 }
 
-export default HomeScreen;
+export default MonthlyDropScreen;
