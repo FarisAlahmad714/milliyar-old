@@ -72,32 +72,42 @@ function ProductScreen(props) {
             <ul>
               <li>Price: {product.price}$</li>
               <li>
-                Status:{product.countInStock > 0 ? ' In Stock' : 'Out of Stock'}{' '}
+                Status:
+                {product.isUpcoming
+                  ? 'Upcoming'
+                  : product.countInStock > 0
+                  ? ' In Stock'
+                  : 'Out of Stock'}
               </li>
-              <li>
-                Qty:
-                <select
-                  value={qty}
-                  onChange={(e) => {
-                    setQty(e.target.value);
-                  }}
-                >
-                  {[...Array(product.countInStock).keys()].map((x) => (
-                    <option key={x + 1} value={x + 1}>
-                      {' '}
-                      {x + 1}{' '}
-                    </option>
-                  ))}
-                </select>{' '}
-              </li>
-              <li>
-                {product.countInStock > 0 && (
-                  <button onClick={handleAddtoCart} className="button primary">
-                    {' '}
-                    Add to Cart
-                  </button>
-                )}
-              </li>
+              {!product.isUpcoming && product.countInStock > 0 && (
+                <>
+                  <li>
+                    Qty:
+                    <select
+                      value={qty}
+                      onChange={(e) => {
+                        setQty(e.target.value);
+                      }}
+                    >
+                      {[...Array(product.countInStock).keys()].map((x) => (
+                        <option key={x + 1} value={x + 1}>
+                          {x + 1}
+                        </option>
+                      ))}
+                    </select>
+                  </li>
+                  <li>
+                    {product.countInStock > 0 && (
+                      <button
+                        onClick={handleAddtoCart}
+                        className="button primary"
+                      >
+                        Add to Cart
+                      </button>
+                    )}
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

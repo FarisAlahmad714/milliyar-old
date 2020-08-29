@@ -19,6 +19,7 @@ function ProductsScreen(props) {
   const [category, setCategory] = useState('');
   const [collectionName, setCollection] = useState('');
   const [countInStock, setCountInStock] = useState('');
+  const [isUpcoming, setIsUpcoming] = useState('');
   const [uploading, setUploading] = useState(false);
 
   const productList = useSelector((state) => state.productList);
@@ -43,7 +44,7 @@ function ProductsScreen(props) {
     if (successSave) {
       setModalVisible(false);
     }
-    dispatch(listProducts());
+    dispatch(listProducts({}));
     return () => {
       //
     };
@@ -59,6 +60,7 @@ function ProductsScreen(props) {
     setCategory(product.category);
     setCollection(product.collectionName);
     setCountInStock(product.countInStock);
+    setIsUpcoming(product.isUpcoming);
   };
 
   const submitHandler = (e) => {
@@ -73,6 +75,7 @@ function ProductsScreen(props) {
         category,
         collectionName,
         countInStock,
+        isUpcoming,
       })
     );
   };
@@ -217,6 +220,17 @@ function ProductsScreen(props) {
                   value={countInStock}
                   id="countInStock"
                   onChange={(e) => setCountInStock(e.target.value)}
+                ></input>
+              </li>
+
+              <li>
+                <label htmlFor="isUpcoming">Is Upcoming</label>
+                <input
+                  type="checkbox"
+                  name="isUpcoming"
+                  checked={isUpcoming}
+                  id="isUpcoming"
+                  onChange={(e) => setIsUpcoming(e.target.checked)}
                 ></input>
               </li>
 

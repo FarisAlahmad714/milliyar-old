@@ -6,11 +6,21 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const category = req.query.category ? { category: req.query.category } : {};
+  console.log(req.query.isUpcoming);
+  const isUpcoming =
+    req.query.isUpcoming === 'true'
+      ? { isUpcoming: true }
+      : { isUpcoming: false };
+  console.log(isUpcoming);
   const collectionName = req.query.collection
     ? { collectionName: req.query.collection }
     : {};
   console.log(collectionName);
-  const products = await Product.find({ ...category, ...collectionName });
+  const products = await Product.find({
+    ...category,
+    ...collectionName,
+    ...isUpcoming,
+  });
   res.send(products);
 });
 
@@ -35,6 +45,7 @@ router.put('/:id', isAuth, isAdmin, async (req, res) => {
     product.name = req.body.name;
     product.image = req.body.image;
     product.images = req.body.images;
+    product.isUpcoming = req.body.isUpcoming;
     product.category = req.body.category;
     product.collectionName = req.body.collectionName;
     product.price = req.body.price;

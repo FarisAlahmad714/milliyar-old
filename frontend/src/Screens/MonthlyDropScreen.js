@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { listProducts } from "../actions/productActions";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { listProducts } from '../actions/productActions';
 // import data from "../d";
 
 function MonthlyDropScreen(props) {
-  const [collection, setCollection] = useState("");
-  const [category, setCategory] = useState("");
+  const [collection, setCollection] = useState('');
+  const [category, setCategory] = useState('');
   // const category = props.match.params.id ? props.match.params.id : '';
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
@@ -23,7 +23,7 @@ function MonthlyDropScreen(props) {
   //     dispatch(listProducts({ category: newCategory, category, collection }));
   //   };
   useEffect(() => {
-    dispatch(listProducts({ category }));
+    dispatch(listProducts({ category, isUpcoming: true }));
 
     return () => {
       //
@@ -40,13 +40,13 @@ function MonthlyDropScreen(props) {
       <div>
         <h1 className="monthly-drop">
           On the 25th of every month , we drop a new collection of limited
-          edition products{" "}
+          edition products{' '}
         </h1>
         <ul className="products">
           {products.map((product) => (
             <li key={product.id}>
               <div className="product">
-                <Link to={"/product/" + product._id}>
+                <Link to={'/product/' + product._id}>
                   <img
                     className="product-image"
                     src={product.image}
@@ -54,7 +54,7 @@ function MonthlyDropScreen(props) {
                   />
                 </Link>
                 <div className="product-name">
-                  <Link to={"/product/" + product._id}>
+                  <Link to={'/product/' + product._id}>
                     <h2>{product.name}</h2>
                   </Link>
                 </div>
