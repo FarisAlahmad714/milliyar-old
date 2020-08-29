@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { listProducts } from "../actions/productActions";
+// import data from "../d";
 
 function MonthlyDropScreen(props) {
   const [collection, setCollection] = useState("");

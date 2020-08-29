@@ -1,22 +1,22 @@
-import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import './App.css';
-import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductScreen';
-import CartScreen from './screens/CartScreen';
-import SignInScreen from './screens/SignInScreen';
-import RegisterScreen from './screens/RegisterScreen';
-import ProductsScreen from './screens/ProductsScreen';
-import ShippingScreen from './screens/ShippingScreen';
-import PaymentScreen from './screens/PaymentScreen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
-import OrderScreen from './screens/OrderScreen';
-import OrdersScreen from './screens/OrdersScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import AboutScreen from './screens/AboutScreen';
-import MonthlyDropScreen from './screens/MonthlyDropScreen';
-import logo from './../src/logo.jpg';
+import React from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import "./App.css";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
+import CartScreen from "./screens/CartScreen";
+import SignInScreen from "./screens/SignInScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import ProductsScreen from "./screens/ProductsScreen";
+import ShippingScreen from "./screens/ShippingScreen";
+import PaymentScreen from "./screens/PaymentScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import OrderScreen from "./screens/OrderScreen";
+import OrdersScreen from "./screens/OrdersScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import AboutScreen from "./screens/AboutScreen";
+import MonthlyDropScreen from "./screens/MonthlyDropScreen";
+import logo from "./../src/logo.jpg";
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -24,11 +24,12 @@ function App() {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const openMenu = () => {
-    document.querySelector('.sidebar').classList.add('open');
+    document.querySelector(".sidebar").classList.add("open");
   };
   const closeMenu = () => {
-    document.querySelector('.sidebar').classList.remove('open');
+    document.querySelector(".sidebar").classList.remove("open");
   };
+  const dispatch = useDispatch();
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -44,7 +45,7 @@ function App() {
             {cartItems.length ? (
               <span className="cart-badge">{cartItems.length}</span>
             ) : (
-              ''
+              ""
             )}
             <Link to="/cart">Cart</Link>
             {userInfo ? (
@@ -85,6 +86,13 @@ function App() {
             <li>
               <Link to="/categories">Categories</Link>
             </li>
+            {/* <button
+              type="button"
+              onClick={handleLogout}
+              className="button secondary full-width"
+            >
+              Logout
+            </button> */}
           </ul>
         </aside>
         <main className="main">
@@ -103,10 +111,10 @@ function App() {
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
-          </div>{' '}
+          </div>{" "}
         </main>
         <footer className="footer">
-          {' '}
+          {" "}
           &copy;2020 All rights reserved to MilliyarLtd.
         </footer>
       </div>

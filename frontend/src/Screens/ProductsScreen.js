@@ -15,6 +15,7 @@ function ProductsScreen(props) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
+  const [images, setImages] = useState([]);
   const [category, setCategory] = useState("");
   const [collectionName, setCollection] = useState("");
   const [countInStock, setCountInStock] = useState("");
@@ -54,6 +55,7 @@ function ProductsScreen(props) {
     setName(product.name);
     setPrice(product.price);
     setImage(product.image);
+    setImages(product.images);
     setCategory(product.category);
     setCollection(product.collectionName);
     setCountInStock(product.countInStock);
@@ -67,6 +69,7 @@ function ProductsScreen(props) {
         name,
         price,
         image,
+        images,
         category,
         collectionName,
         countInStock,
@@ -149,6 +152,7 @@ function ProductsScreen(props) {
                 <input type="file" onChange={uploadFileHandler}></input>
                 {uploading && <div>Uploading..</div>}
               </li>
+
               <li>
                 <label htmlFor="category">Category</label>
                 <input
