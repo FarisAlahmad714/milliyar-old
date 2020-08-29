@@ -34,6 +34,7 @@ router.put('/:id', isAuth, isAdmin, async (req, res) => {
   if (product) {
     product.name = req.body.name;
     product.image = req.body.image;
+    product.images = req.body.images;
     product.category = req.body.category;
     product.collectionName = req.body.collectionName;
     product.price = req.body.price;

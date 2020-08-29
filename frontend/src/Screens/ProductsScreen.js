@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 // import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 // import { signin } from "../actions/userActions";
 import {
   saveProduct,
   listProducts,
   deleteProduct,
-} from "../actions/productActions";
-import axios from "axios";
+} from '../actions/productActions';
+import axios from 'axios';
 
 function ProductsScreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [id, setId] = useState("");
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [image, setImage] = useState("");
+  const [id, setId] = useState('');
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
-  const [category, setCategory] = useState("");
-  const [collectionName, setCollection] = useState("");
-  const [countInStock, setCountInStock] = useState("");
+  const [category, setCategory] = useState('');
+  const [collectionName, setCollection] = useState('');
+  const [countInStock, setCountInStock] = useState('');
   const [uploading, setUploading] = useState(false);
 
   const productList = useSelector((state) => state.productList);
@@ -83,16 +83,37 @@ function ProductsScreen(props) {
   const uploadFileHandler = (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
-    bodyFormData.append("image", file);
+    bodyFormData.append('image', file);
     setUploading(true);
     axios
-      .post("/api/uploads", bodyFormData, {
+      .post('/api/uploads', bodyFormData, {
         headers: {
-          "Content-Type": "multipar/form-data",
+          'Content-Type': 'multipar/form-data',
         },
       })
       .then((response) => {
         setImage(response.data);
+        setUploading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setUploading(false);
+      });
+  };
+
+  const uploadNewFileHandler = (e) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append('image', file);
+    setUploading(true);
+    axios
+      .post('/api/uploads', bodyFormData, {
+        headers: {
+          'Content-Type': 'multipar/form-data',
+        },
+      })
+      .then((response) => {
+        setImages([...images, response.data]);
         setUploading(false);
       })
       .catch((err) => {
@@ -152,6 +173,20 @@ function ProductsScreen(props) {
                 <input type="file" onChange={uploadFileHandler}></input>
                 {uploading && <div>Uploading..</div>}
               </li>
+              <li>
+                <label htmlFor="images">Images</label>
+                <div>
+                  <ul>
+                    {images.length === 0 && <li>No image</li>}
+                    {images.map((x) => (
+                      <li>{x}</li>
+                    ))}
+                  </ul>
+                  <input type="file" onChange={uploadNewFileHandler}></input>
+                </div>
+
+                {uploading && <div>Uploading..</div>}
+              </li>
 
               <li>
                 <label htmlFor="category">Category</label>
@@ -187,7 +222,7 @@ function ProductsScreen(props) {
 
               <li>
                 <button type="submit" className="button primary">
-                  {id ? "Update" : "Create"}
+                  {id ? 'Update' : 'Create'}
                 </button>
               </li>
               <li>
@@ -227,7 +262,7 @@ function ProductsScreen(props) {
                 <td>
                   <button className="button" onClick={() => openModal(product)}>
                     Edit
-                  </button>{" "}
+                  </button>{' '}
                   <button
                     className="button"
                     onClick={() => deleteHandler(product)}

@@ -11,7 +11,7 @@ import {
   PRODUCT_DELETE_REQUEST,
   PRODUCT_DELETE_SUCCESS,
   PRODUCT_DELETE_FAIL,
-} from "../constants/productConstants";
+} from '../constants/productConstants';
 
 function productListReducer(state = { products: [] }, action) {
   switch (action.type) {
@@ -25,7 +25,7 @@ function productListReducer(state = { products: [] }, action) {
       return state;
   }
 }
-function productDetailsReducer(state = { product: {} }, action) {
+function productDetailsReducer(state = { loading: true, product: {} }, action) {
   switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:
       return { loading: true };
