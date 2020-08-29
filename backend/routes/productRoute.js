@@ -10,7 +10,9 @@ router.get('/', async (req, res) => {
   const isUpcoming =
     req.query.isUpcoming === 'true'
       ? { isUpcoming: true }
-      : { isUpcoming: false };
+      : req.query.isUpcoming === 'false'
+      ? { isUpcoming: false }
+      : {};
   console.log(isUpcoming);
   const collectionName = req.query.collection
     ? { collectionName: req.query.collection }

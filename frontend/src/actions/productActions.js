@@ -16,12 +16,10 @@ import axios from 'axios';
 
 // { category = '', collection = '' } took out betweeen ()
 // & ?category=${category}&collection=${collection} from url. get
-const listProducts = ({ isUpcoming = false }) => async (dispatch) => {
+const listProducts = ({ isUpcoming = 'false' }) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
-    const { data } = await axios.get(
-      `/api/products?isUpcoming=${isUpcoming ? 'true' : 'false'}`
-    );
+    const { data } = await axios.get(`/api/products?isUpcoming=${isUpcoming}`);
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });

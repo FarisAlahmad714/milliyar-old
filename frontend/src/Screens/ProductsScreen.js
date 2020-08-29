@@ -44,7 +44,7 @@ function ProductsScreen(props) {
     if (successSave) {
       setModalVisible(false);
     }
-    dispatch(listProducts({}));
+    dispatch(listProducts({ isUpcoming: '' }));
     return () => {
       //
     };
