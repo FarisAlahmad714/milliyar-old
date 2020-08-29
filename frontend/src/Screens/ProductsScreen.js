@@ -128,7 +128,10 @@ function ProductsScreen(props) {
     <div className="content content-margined">
       <div className="product-header">
         <h3>Products</h3>
-        <button className="button primary" onClick={() => openModal({})}>
+        <button
+          className="button primary"
+          onClick={() => openModal({ images: [] })}
+        >
           Create Product
         </button>
       </div>
