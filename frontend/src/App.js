@@ -75,16 +75,24 @@ function App() {
           </button>
           <ul className="menubar">
             <li>
-              <Link to="/">Home</Link>
+              <Link onClick={closeMenu} to="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link onClick={closeMenu} to="/about">
+                About
+              </Link>
             </li>
             <li>
-              <Link to="/monthly">Monthly Drops</Link>
+              <Link onClick={closeMenu} to="/monthly">
+                Monthly Drops
+              </Link>
             </li>
             <li>
-              <Link to="/categories">Categories</Link>
+              <Link onClick={closeMenu} to="/categories">
+                Categories
+              </Link>
             </li>
             {/* <button
               type="button"

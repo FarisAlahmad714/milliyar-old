@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { detailsProduct } from '../actions/productActions';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { detailsProduct } from "../actions/productActions";
 
 // Ask about product page css  jquery photos in homepage , babel transpile
 function ProductScreen(props) {
   const [qty, setQty] = useState(1);
-  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedImage, setSelectedImage] = useState("");
   const productDetails = useSelector((state) => state.productDetails);
   const { product, loading, error } = productDetails;
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function ProductScreen(props) {
   }, []);
 
   const handleAddtoCart = () => {
-    props.history.push('/cart/' + props.match.params.id + '?qty=' + qty);
+    props.history.push("/cart/" + props.match.params.id + "?qty=" + qty);
   };
   const changeImage = (image) => {
     setSelectedImage(image);
@@ -27,7 +27,12 @@ function ProductScreen(props) {
   return (
     <div>
       <div className="back-to-result">
-        <Link to="/">Back to result</Link>
+        <button>
+          <Link to="/">Home</Link>
+        </button>
+        <button>
+          <Link to="javascript:history.back()">Back </Link>
+        </button>
       </div>
 
       {loading ? (
@@ -55,7 +60,6 @@ function ProductScreen(props) {
                 {/* add description in data if needed */}
               </li>
               <li>
-                Images:
                 <ul className="images">
                   {[product.image, ...product.images].map((x) => (
                     <li key={x}>
@@ -74,10 +78,10 @@ function ProductScreen(props) {
               <li>
                 Status:
                 {product.isUpcoming
-                  ? 'Upcoming'
+                  ? "Upcoming"
                   : product.countInStock > 0
-                  ? ' In Stock'
-                  : 'Out of Stock'}
+                  ? " In Stock"
+                  : "Out of Stock"}
               </li>
               {!product.isUpcoming && product.countInStock > 0 && (
                 <>

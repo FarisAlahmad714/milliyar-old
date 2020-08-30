@@ -6,57 +6,47 @@ const About = (props) => {
   return (
     <div>
       {" "}
-      <h1>Milliyar?</h1>
-      <h2>Who we are</h2>
-      <p>
+      <h1>Milliyar Origins </h1>
+      <h2 className="center-text"> WHO WE ARE </h2>
+      <img
+        className="center-img"
+        src="https://i.imgur.com/tIFtS2Tl.png"
+        width="100%"
+        height="500px"
+      />
+      <p className="center-text">
         {" "}
-        There are no intiation fees!Although we provided the ability for
-        donations because 3D printing materials can also be costy , the more you
-        donate the higher the chances of getting contacted by one of our 3D
-        printing engineers! This organization is built to donate for those that
-        have little to no resources and are in desperate need of their request!{" "}
+        Milliyar is an international word for the meaning billion . Specializing
+        in Hats , Hoodies , Shirts and soon socks . The rise of milliyar came
+        from realizing the market for clothing is limited with luxury brands and
+        overpriced fabrics which makes it hard for everyday millinials to get a
+        bang for their buck . This brand was created from honesty and integrety
+        , we overlook the amount charged the customer by other brands for profit
+        , rather we provide high quality clothing for reasonable pricing. Our
+        goal is to create a heritage for spending a fraction of what you pay for
+        a gaurunteed fit , Milliyar will stand you out .{" "}
       </p>
       <h2>ADINFINITUM ADNASEUM </h2>
-      <p>
+      <h2 className="center-text">Mission </h2>
+      <p className="center-text">
         {" "}
-        3D printing is a way of creating three dimensional (3D) solid objects.
-        3D printing is done by building up the object layer by layer. Usually,
-        3D printers use plastic, because it is easier to use and cheaper. Some
-        3D printers can 3D print with other materials, like metals and ceramics,
-        but they cost too much money for most people.3D printers are useful
-        because they can make new objects very fast, and are good at making them
-        very detailed. This means an engineer can test a lot of new designs and
-        not have to wait for someone else to make them. They are also useful for
-        fixing parts made of plastic, and for making toys, figures, and models.
-        There are a lot of people who print 3D objects at home!{" "}
-      </p>
-      <h2>Mission </h2>
-      <p>
-        {" "}
-        As an organization that was built to help individuals or groups that are
-        affected by poverty or a lack of resource , we aimed to choose the most
-        in need categories and put them together to help achieve what is needed
-        to be done . Our categories range from : Printable Body Parts ,
-        Toys,Prothetics & Medical , Home Appliances ,{" "}
+        We aim to be a lifestyle brand exclusivley for street wear inspired by
+        generations of musical & martial arts, influenced by west coast street
+        wear and arabian culture, established in Orange County , Califronia to
+        reach the rest of the world . On the 25th of every month , we curate a
+        collection of streetwear that is eyecatch{" "}
       </p>
       <h2>ADINFINITUM ADNASEUM </h2>
-      <p>
-        {" "}
-        3D printing is a way of creating three dimensional (3D) solid objects.
-        3D printing is done by building up the object layer by layer. Usually,
-        3D printers use plastic, because it is easier to use and cheaper. Some
-        3D printers can 3D print with other materials, like metals and ceramics,
-        but they cost too much money for most people.3D printers are useful
-        because they can make new objects very fast, and are good at making them
-        very detailed. This means an engineer can test a lot of new designs and
-        not have to wait for someone else to make them. They are also useful for
-        fixing parts made of plastic, and for making toys, figures, and models.
-        There are a lot of people who print 3D objects at home!{" "}
-      </p>
-      <h2>Still have unanswered questions? Contact us below </h2>
-      <Link to="/help" style={{ color: "red" }}>
-        Contact Us
-      </Link>
+      <h2 className="center-text">
+        Still have unanswered questions? Contact us below{" "}
+      </h2>
+      <div className="center-text">
+        <button>
+          <Link to="/help" style={{ color: "red" }}>
+            Contact Us
+          </Link>
+        </button>
+      </div>
     </div>
   );
 };

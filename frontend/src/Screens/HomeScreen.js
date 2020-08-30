@@ -37,6 +37,14 @@ function HomeScreen(props) {
       <div>{error}</div>
     ) : (
       <div>
+        <div>
+          <img
+            className="center-img"
+            src="https://i.imgur.com/tIFtS2Tl.png"
+            width="100%"
+            height="250px"
+          />
+        </div>
         <div className="home-filter">
           <form>
             Collections{" "}

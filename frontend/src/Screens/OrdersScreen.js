@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { signin } from '../actions/userActions';
-import { saveOrder, listOrders, deleteOrder } from '../actions/orderActions';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { signin } from "../actions/userActions";
+import { saveOrder, listOrders, deleteOrder } from "../actions/orderActions";
 
 function OrdersScreen(props) {
-  console.log('dd');
+  console.log("dd");
   const orderList = useSelector((state) => state.orderList);
   const { loading, orders, error } = orderList;
 
@@ -43,6 +43,7 @@ function OrdersScreen(props) {
               <th>DATE</th>
               <th>TOTAL</th>
               <th>USER</th>
+              <th>EMAIL</th>
               <th>PAID</th>
               <th>PAID AT</th>
               <th>DELIVERED</th>
@@ -57,14 +58,15 @@ function OrdersScreen(props) {
                 <td>{order.createdAt}</td>
                 <td>{order.totalPrice}</td>
                 <td>{order.user.name}</td>
+                <td>{order.user.email}</td>
                 <td>{order.isPaid.toString()}</td>
                 <td>{order.paidAt}</td>
                 <td>{order.isDelivered.toString()}</td>
                 <td>{order.deliveredAt}</td>
                 <td>
-                  <Link to={'/order/' + order._id} className="button secondary">
+                  <Link to={"/order/" + order._id} className="button secondary">
                     Details
-                  </Link>{' '}
+                  </Link>{" "}
                   <button
                     type="button"
                     onClick={() => deleteHandler(order)}
